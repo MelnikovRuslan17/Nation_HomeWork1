@@ -37,16 +37,11 @@ public class Main {
 
         List<Person> worker = persons.stream()
                 .filter(x -> x.getAge() > 18)
-                .filter(x -> x.getAge() < 60)
+                .filter(x -> (x.getSex()==Sex.Man ? x.getAge() < 65 : x.getAge() < 60))
                 .filter(x -> x.getEducation() == Education.HIGHER)
-                .filter(x -> x.getSex() == Sex.Women)
-                .filter(x -> x.getAge() > 18)
-                .filter(x -> x.getAge() < 65)
-                .filter(x -> x.getEducation() == Education.HIGHER)
-                .filter(x -> x.getSex() == Sex.Man)
                 .sorted(Comparator.comparing(Person::getFamily))
                 .collect(Collectors.toList());
-        System.out.println(worker);
+        System.out.print(worker);
 
 
     }
